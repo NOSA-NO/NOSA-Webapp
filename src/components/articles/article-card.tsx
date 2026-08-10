@@ -11,7 +11,7 @@ export function ArticleCard({ article }: { article: Article }) {
         <h2 className="text-xl font-semibold text-slate-100">{article.title}</h2>
         <p className="text-slate-300">{article.summary}</p>
         <Link href={`/wissen/${article.slug}`} className="inline-block text-sky-300 hover:text-sky-200">
-          Read article →
+          Artikel lesen →
         </Link>
       </CardContent>
     </Card>

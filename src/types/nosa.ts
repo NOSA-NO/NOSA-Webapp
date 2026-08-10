@@ -50,6 +50,7 @@ export interface TeamMilestone {
 export interface CountryGuessMap {
   id: string;
   country: string;
+  acceptedAnswers: string[];
   mapImage: string;
   hint: string;
 }

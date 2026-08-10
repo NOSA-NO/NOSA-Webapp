@@ -9,6 +9,12 @@ import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import type { SatelliteImage } from "@/types/nosa";
 
+const imageTypeLabels = {
+  clouds: "Wolken",
+  infrared: "Infrarot",
+  temperature: "Temperatur",
+};
+
 export function GalleryGrid({ images }: { images: SatelliteImage[] }) {
   const [search, setSearch] = useState("");
   const [filterType, setFilterType] = useState("all");
@@ -42,20 +48,20 @@ export function GalleryGrid({ images }: { images: SatelliteImage[] }) {
     <div className="space-y-6">
       <div className="grid gap-3 md:grid-cols-3">
         <Input
-          placeholder="Search title or satellite"
+          placeholder="Titel oder Satellit suchen"
           value={search}
           onChange={(event) => setSearch(event.target.value)}
         />
         <Select value={filterType} onChange={(event) => setFilterType(event.target.value)}>
-          <option value="all">All image types</option>
-          <option value="clouds">Clouds</option>
-          <option value="infrared">Infrared</option>
-          <option value="temperature">Temperature</option>
+          <option value="all">Alle Bildtypen</option>
+          <option value="clouds">Wolken</option>
+          <option value="infrared">Infrarot</option>
+          <option value="temperature">Temperatur</option>
         </Select>
         <Select value={sortBy} onChange={(event) => setSortBy(event.target.value)}>
-          <option value="date-desc">Newest first</option>
-          <option value="date-asc">Oldest first</option>
-          <option value="likes">Most likes</option>
+          <option value="date-desc">Neueste zuerst</option>
+          <option value="date-asc">Älteste zuerst</option>
+          <option value="likes">Am häufigsten mit „Gefällt mir“ markiert</option>
         </Select>
       </div>
 
@@ -71,7 +77,7 @@ export function GalleryGrid({ images }: { images: SatelliteImage[] }) {
                 <div className="flex flex-wrap gap-2">
                   <Badge>{image.date}</Badge>
                   <Badge>{image.satellite}</Badge>
-                  <Badge>{image.type}</Badge>
+                  <Badge>{imageTypeLabels[image.type]}</Badge>
                   <Badge>♥ {image.likes}</Badge>
                 </div>
               </CardContent>

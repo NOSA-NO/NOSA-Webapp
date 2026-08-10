@@ -15,7 +15,7 @@ describe("data access abstraction", () => {
 
   it("returns an image by id", () => {
     const image = getImageById("1");
-    expect(image?.title).toMatch(/Cloud/i);
+    expect(image?.title).toMatch(/Wolken/i);
   });
 
   it("returns the latest satellite image", () => {

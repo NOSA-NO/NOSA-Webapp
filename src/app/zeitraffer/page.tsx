@@ -5,8 +5,8 @@ export default function TimelapsePage() {
   return (
     <section className="space-y-5">
       <h1 className="text-3xl font-bold md:text-4xl">Zeitraffer</h1>
-      <p className="text-slate-300">
-        Flexible timelapse prototype prepared for cloud-hosted videos and generated future timelines.
+      <p className="text-sky-700">
+        Flexibler Zeitraffer-Prototyp für cloudgehostete Videos und künftig generierte Zeitachsen.
       </p>
       <TimelapseViewer timelapses={getTimelapses()} />
     </section>

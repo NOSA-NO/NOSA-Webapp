@@ -17,21 +17,21 @@ export function TimelapseViewer({ timelapses }: { timelapses: Timelapse[] }) {
     <div className="grid gap-4 lg:grid-cols-[320px_minmax(0,1fr)]">
       <Card>
         <CardContent className="space-y-4">
-          <h2 className="text-xl font-semibold">Timelapse filters</h2>
+          <h2 className="text-xl font-semibold">Zeitraffer-Filter</h2>
           <label className="block space-y-2">
-            <span className="text-sm text-slate-300">Time</span>
+            <span className="text-sm text-slate-300">Zeitraum</span>
             <Select value={period} onChange={(event) => setPeriod(event.target.value)}>
-              <option value="24h">24 hours</option>
-              <option value="7d">7 days</option>
-              <option value="all">All</option>
+              <option value="24h">24 Stunden</option>
+              <option value="7d">7 Tage</option>
+              <option value="all">Alle</option>
             </Select>
           </label>
           <label className="block space-y-2">
-            <span className="text-sm text-slate-300">Image type</span>
+            <span className="text-sm text-slate-300">Bildtyp</span>
             <Select value={type} onChange={(event) => setType(event.target.value)}>
-              <option value="clouds">Clouds</option>
-              <option value="infrared">Infrared (placeholder)</option>
-              <option value="temperature">Temperature (placeholder)</option>
+              <option value="clouds">Wolken</option>
+              <option value="infrared">Infrarot (Platzhalter)</option>
+              <option value="temperature">Temperatur (Platzhalter)</option>
             </Select>
           </label>
         </CardContent>

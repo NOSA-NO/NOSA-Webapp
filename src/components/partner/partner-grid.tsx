@@ -13,7 +13,7 @@ export function PartnerGrid({ partners }: { partners: Partner[] }) {
             <h2 className="text-lg font-semibold text-slate-100">{partner.name}</h2>
             <p className="text-slate-300">{partner.description}</p>
             <Link href={partner.url} target="_blank" rel="noopener noreferrer" className="text-sky-300 hover:text-sky-200">
-              Visit partner ↗
+              Partner besuchen ↗
             </Link>
           </CardContent>
         </Card>

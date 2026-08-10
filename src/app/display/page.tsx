@@ -5,13 +5,13 @@ export default function DisplayModePage() {
   return (
     <Card>
       <CardContent className="space-y-3">
-        <h1 className="text-3xl font-bold">Display mode foundation</h1>
-        <p className="text-slate-300">
-          This route reserves architecture space for future guided exhibition behavior and rotating
-          content sequences.
+        <h1 className="text-3xl font-bold">Grundlage für den Anzeigemodus</h1>
+        <p className="text-sky-400">
+          Diese Seite schafft die technische Grundlage für zukünftige geführte Ausstellungen und
+          wechselnde Inhaltsfolgen.
         </p>
         <Link href="/start" className="text-sky-300 hover:text-sky-200">
-          Return to start page
+          Zur Startseite
         </Link>
       </CardContent>
     </Card>

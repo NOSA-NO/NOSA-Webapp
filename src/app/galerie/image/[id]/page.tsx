@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: GalleryImagePageProps): Promi
   const image = getImageById(id);
 
   if (!image) {
-    return { title: "Image not found" };
+    return { title: "Bild nicht gefunden" };
   }
 
   return {

@@ -16,10 +16,13 @@ export function CountryGuessGame({ maps }: { maps: CountryGuessMap[] }) {
   const [guess, setGuess] = useState("");
   const [result, setResult] = useState<"correct" | "wrong" | null>(null);
 
-  const normalizedCountry = useMemo(() => active.country.toLowerCase(), [active.country]);
+  const acceptedAnswers = useMemo(
+    () => active.acceptedAnswers.map((answer) => answer.toLowerCase()),
+    [active.acceptedAnswers],
+  );
 
   const submit = () => {
-    setResult(guess.trim().toLowerCase() === normalizedCountry ? "correct" : "wrong");
+    setResult(acceptedAnswers.includes(guess.trim().toLowerCase()) ? "correct" : "wrong");
   };
 
   const nextRound = () => {
@@ -32,26 +35,26 @@ export function CountryGuessGame({ maps }: { maps: CountryGuessMap[] }) {
     <Card>
       <CardContent className="space-y-4">
         <div className="relative aspect-video overflow-hidden rounded-xl border border-slate-700">
-          <Image src={active.mapImage} alt="Country map guess" fill sizes="100vw" className="object-cover" />
+          <Image src={active.mapImage} alt="Karte zum Länderraten" fill sizes="100vw" className="object-cover" />
         </div>
-        <p className="text-slate-300">Hint: {active.hint}</p>
+        <p className="text-slate-300">Hinweis: {active.hint}</p>
         <div className="flex flex-wrap gap-3">
           <Input
             value={guess}
             onChange={(event) => setGuess(event.target.value)}
-            placeholder="Type your country guess"
+            placeholder="Land eingeben"
             className="min-w-[220px] flex-1"
           />
-          <Button onClick={submit}>Check</Button>
+          <Button onClick={submit}>Prüfen</Button>
           <Button variant="outline" onClick={nextRound}>
-            Next map
+            Nächste Karte
           </Button>
         </div>
         {result && (
           <p className={result === "correct" ? "text-emerald-300" : "text-rose-300"}>
             {result === "correct"
-              ? "Correct! Great satellite map knowledge."
-              : `Not yet. Correct answer: ${active.country}`}
+              ? "Richtig! Großartiges Wissen über Satellitenkarten."
+              : `Noch nicht. Die richtige Antwort lautet: ${active.country}`}
           </p>
         )}
       </CardContent>

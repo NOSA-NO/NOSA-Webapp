@@ -8,14 +8,14 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "NOSA Webapp",
-  description: "Educational satellite platform foundation for the NOSA school team.",
+  description: "Die Bildungsplattform der NO Satelliten-Arbeitsgruppe.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const config = getAppConfig();
 
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="de" className="h-full antialiased">
       <body className="min-h-full bg-slate-950 text-slate-50">
         <ExhibitionGuard
           appMode={config.appMode}

@@ -8,14 +8,14 @@ import type { ImageType, SatelliteImage, SatelliteLocation } from "@/types/nosa"
 
 const locations: { value: SatelliteLocation; label: string }[] = [
   { value: "braunschweig", label: "Braunschweig" },
-  { value: "germany", label: "Germany" },
-  { value: "europe", label: "Europe" },
+  { value: "germany", label: "Deutschland" },
+  { value: "europe", label: "Europa" },
 ];
 
 const imageTypes: { value: ImageType; label: string }[] = [
-  { value: "clouds", label: "Clouds" },
-  { value: "infrared", label: "Infrared (placeholder)" },
-  { value: "temperature", label: "Temperature (placeholder)" },
+  { value: "clouds", label: "Wolken" },
+  { value: "infrared", label: "Infrarot (Platzhalter)" },
+  { value: "temperature", label: "Temperatur (Platzhalter)" },
 ];
 
 export function LiveViewer({ images }: { images: SatelliteImage[] }) {
@@ -33,9 +33,9 @@ export function LiveViewer({ images }: { images: SatelliteImage[] }) {
     <div className="grid gap-4 lg:grid-cols-[320px_minmax(0,1fr)]">
       <Card>
         <CardContent className="space-y-4">
-          <h2 className="text-xl font-semibold">Live settings</h2>
+          <h2 className="text-xl font-semibold">Live-Einstellungen</h2>
           <label className="block space-y-2">
-            <span className="text-sm text-slate-300">Location</span>
+            <span className="text-sm text-slate-300">Ort</span>
             <Select value={location} onChange={(e) => setLocation(e.target.value as SatelliteLocation)}>
               {locations.map((entry) => (
                 <option key={entry.value} value={entry.value}>
@@ -45,7 +45,7 @@ export function LiveViewer({ images }: { images: SatelliteImage[] }) {
             </Select>
           </label>
           <label className="block space-y-2">
-            <span className="text-sm text-slate-300">Image type</span>
+            <span className="text-sm text-slate-300">Bildtyp</span>
             <Select value={imageType} onChange={(e) => setImageType(e.target.value as ImageType)}>
               {imageTypes.map((entry) => (
                 <option key={entry.value} value={entry.value}>
