@@ -7,7 +7,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-30 border-b border-slate-800/80 bg-slate-950/90 backdrop-blur">
       <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-3 md:px-8">
         <Link href="/start" className="flex items-center gap-3 rounded-xl px-2 py-1">
-          <Image src="/nosa-logo.png" alt="NOSA-Logo" width={108} height={36} priority />
+          <Image src="/nosa-logo.png" alt="NOSA-Logo" width={36} height={40} priority />
           <span className="text-sm font-semibold text-slate-200">NO Satelliten-Arbeitsgruppe</span>
         </Link>
         <MainNav />
