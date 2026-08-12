@@ -2,5 +2,12 @@
   "files.associations": {
     "*.css": "tailwindcss"
   },
-  "css.lint.unknownAtRules": "ignore"
+  "css.lint.unknownAtRules": "ignore",
+  "terminal.integrated.profiles.linux": {
+    "Host Bash": {
+      "path": "/usr/bin/flatpak-spawn",
+      "args": ["--host", "bash", "-l"]
+    }
+  },
+  "terminal.integrated.defaultProfile.linux": "Host Bash"
 }
