@@ -32,12 +32,12 @@ export function GalleryDetail({ image, allowDownloads }: GalleryDetailProps) {
     <div className="grid gap-5 lg:grid-cols-[2fr_1fr]">
       <Card>
         <CardContent className="space-y-4">
-          <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-slate-700">
+          <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-nosa-border">
             <Image src={image.src} alt={image.title} fill sizes="(max-width: 1024px) 100vw, 66vw" className="object-cover" />
           </div>
-          <h1 className="text-2xl font-bold text-slate-100">{image.title}</h1>
-          <p className="text-slate-300">{image.description}</p>
-          <div className="grid gap-1 text-sm text-slate-300 sm:grid-cols-2">
+          <h2 className="text-2xl font-semibold text-foreground">{image.title}</h2>
+          <p className="text-nosa-muted">{image.description}</p>
+          <div className="grid gap-1 text-sm text-nosa-muted sm:grid-cols-2">
             <p>Datum: {image.date}</p>
             <p>Satellit: {image.satellite}</p>
             <p>Typ: {imageTypeLabels[image.type]}</p>
@@ -51,15 +51,18 @@ export function GalleryDetail({ image, allowDownloads }: GalleryDetailProps) {
           <Button className="w-full" onClick={() => setLikes((value) => value + 1)}>
             Bild gefällt mir (♥ {likes})
           </Button>
-          <div className="rounded-xl border border-slate-700 bg-slate-950 p-3">
-            <p className="mb-2 text-sm text-slate-300">QR-Code für diese Detailseite</p>
+          <p className="text-sm leading-6 text-nosa-muted">
+            Likes, QR-Code und Download — zum Teilen am Stand oder zum Mitnehmen nach Hause.
+          </p>
+          <div className="rounded-2xl border border-nosa-border bg-nosa-bg p-3">
+            <p className="mb-2 text-sm text-nosa-muted">QR-Code für diese Detailseite</p>
             <div className="inline-block rounded-lg bg-white p-2">
               <QRCodeSVG value={detailUrl} size={140} />
             </div>
-            <p className="mt-2 text-xs text-slate-400">Verweist auf {detailUrl}</p>
+            <p className="mt-2 text-xs text-nosa-muted">Verweist auf {detailUrl}</p>
           </div>
           <Button className="w-full" variant="secondary" disabled={!allowDownloads}>
-            {allowDownloads ? "Bild herunterladen (vorbereitet)" : "Downloads sind im Ausstellungsmodus deaktiviert"}
+            {allowDownloads ? "Bild herunterladen" : "Download im Ausstellungsmodus deaktiviert"}
           </Button>
         </CardContent>
       </Card>

@@ -32,4 +32,8 @@ describe("data access abstraction", () => {
     const article = getArticleBySlug("software-pipeline");
     expect(article?.topic).toBe("Software");
   });
+
+  it("includes the EUMETSAT knowledge article", () => {
+    expect(getArticleBySlug("eumetsat-daten")?.topic).toBe("Daten");
+  });
 });

@@ -1,11 +1,15 @@
 import { LiveViewer } from "@/components/live/live-viewer";
+import { PageIntro } from "@/components/layout/page-intro";
 import { getImages } from "@/lib/data";
 
 export default function LivePage() {
   return (
-    <section className="space-y-5">
-      <h1 className="text-3xl font-bold md:text-4xl">Live-Satellitenansicht</h1>
-      <p className="text-sky-700">Prototypansicht mit erweiterbaren Filtern für Ort und Bildtyp.</p>
+    <section className="space-y-8">
+      <PageIntro
+        eyebrow="NOSA-Empfang"
+        title="Live-Satellitenansicht"
+        description="Hier siehst du, wie NOSA Wettersatelliten lokal empfängt: Ort und Bildtyp wählen, Szene betrachten. Wolken kommen aus Demo-Aufnahmen; Infrarot und Temperatur stehen als klare Vorschau bereit, bis der Live-Strom angebunden ist."
+      />
       <LiveViewer images={getImages()} />
     </section>
   );

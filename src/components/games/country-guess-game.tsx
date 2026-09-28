@@ -34,10 +34,10 @@ export function CountryGuessGame({ maps }: { maps: CountryGuessMap[] }) {
   return (
     <Card>
       <CardContent className="space-y-4">
-        <div className="relative aspect-video overflow-hidden rounded-xl border border-slate-700">
+        <div className="relative aspect-video overflow-hidden rounded-2xl border border-nosa-border">
           <Image src={active.mapImage} alt="Karte zum Länderraten" fill sizes="100vw" className="object-cover" />
         </div>
-        <p className="text-slate-300">Hinweis: {active.hint}</p>
+        <p className="text-nosa-muted">Hinweis: {active.hint}</p>
         <div className="flex flex-wrap gap-3">
           <Input
             value={guess}
@@ -53,7 +53,7 @@ export function CountryGuessGame({ maps }: { maps: CountryGuessMap[] }) {
         {result && (
           <p className={result === "correct" ? "text-emerald-300" : "text-rose-300"}>
             {result === "correct"
-              ? "Richtig! Großartiges Wissen über Satellitenkarten."
+              ? "Richtig — die Umrisse sitzen."
               : `Noch nicht. Die richtige Antwort lautet: ${active.country}`}
           </p>
         )}

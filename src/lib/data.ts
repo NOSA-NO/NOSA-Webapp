@@ -7,6 +7,7 @@ import {
   startSlides,
   teamTimeline,
 } from "@/data/mock";
+import { getEumetsatProducts, getEumetsatRegions } from "@/lib/eumetsat";
 import type { ImageType, SatelliteLocation } from "@/types/nosa";
 
 export const getImages = () => mockImages;
@@ -35,3 +36,5 @@ export const getTimeline = () => teamTimeline;
 export const getCountryGuessMaps = () => countryGuessMaps;
 
 export const getStartSlides = () => startSlides;
+
+export { getEumetsatProducts, getEumetsatRegions };

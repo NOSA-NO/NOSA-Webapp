@@ -1,47 +1,62 @@
 @import "tailwindcss";
 
 :root {
-  --background: #020617;
-  --foreground: #f8fafc;
+  --background: #061018;
+  --foreground: #eaf6f8;
+  --nosa-bg: #061018;
+  --nosa-surface: rgba(10, 28, 40, 0.82);
+  --nosa-surface-solid: #0b1c28;
+  --nosa-elevated: #102433;
+  --nosa-border: rgba(125, 211, 210, 0.16);
+  --nosa-accent: #2dd4bf;
+  --nosa-accent-strong: #14b8a6;
+  --nosa-sky: #7dd3fc;
+  --nosa-muted: #9bb7c4;
+  --nosa-danger: #fb7185;
+  --nosa-success: #34d399;
 }
 
 @theme inline {
-  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-sans: var(--font-inter), "Segoe UI", system-ui, sans-serif;
+  --font-display: var(--font-space), "Inter", system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-nosa-bg: var(--nosa-bg);
+  --color-nosa-surface: var(--nosa-surface-solid);
+  --color-nosa-elevated: var(--nosa-elevated);
+  --color-nosa-border: #1e4454;
+  --color-nosa-accent: var(--nosa-accent);
+  --color-nosa-sky: var(--nosa-sky);
+  --color-nosa-muted: var(--nosa-muted);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-  --background: #e0f2fe;
-    --foreground: #020617;
-  }
-
-  body {
-    background:
-      radial-gradient(circle at 20% 0%, rgba(125, 211, 252, 0.28), transparent 40%),
-      radial-gradient(circle at 90% 10%, rgba(147, 197, 253, 0.2), transparent 35%),
-      var(--background);
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background:
-      radial-gradient(circle at 20% 0%, rgba(14, 116, 144, 0.35), transparent 40%),
-      radial-gradient(circle at 90% 10%, rgba(56, 189, 248, 0.15), transparent 35%),
-      var(--background);
-  }
+html,
+body {
+  min-height: 100%;
 }
 
 body {
   color: var(--foreground);
-  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  background:
+    radial-gradient(circle at 12% -10%, rgba(45, 212, 191, 0.16), transparent 36%),
+    radial-gradient(circle at 92% 0%, rgba(56, 189, 248, 0.14), transparent 32%),
+    radial-gradient(circle at 50% 120%, rgba(15, 118, 110, 0.18), transparent 42%),
+    var(--background);
+  font-family: var(--font-inter), "Segoe UI", system-ui, sans-serif;
 }
 
 h1,
 h2,
-h3 {
-  font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
+h3,
+.font-display {
+  font-family: var(--font-space), "Inter", system-ui, sans-serif;
+  letter-spacing: -0.03em;
+}
+
+::selection {
+  background: rgba(45, 212, 191, 0.28);
+}
+
+a {
+  color: inherit;
 }

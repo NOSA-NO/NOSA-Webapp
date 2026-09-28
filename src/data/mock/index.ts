@@ -29,7 +29,7 @@ export const mockImages: SatelliteImage[] = [
     likes: 28,
     location: "germany",
     src: "/demo/images/sat-2.jpg",
-    description: "Infrarot-Platzhalter für nächtliche Wolkenaktivität.",
+    description: "Wärmebild der Nacht: Wolkenoberkanten leuchten hell, die Landmasse bleibt ruhig und dunkel."
   },
   {
     id: "3",
@@ -40,7 +40,7 @@ export const mockImages: SatelliteImage[] = [
     likes: 35,
     location: "braunschweig",
     src: "/demo/images/sat-3.jpg",
-    description: "Platzhalter für eine Temperaturvisualisierung rund um Braunschweig.",
+    description: "Farbverlauf der Lufttemperatur rund um Braunschweig — kühle Täler, wärmere Stadtflächen."
   },
   {
     id: "4",
@@ -62,7 +62,7 @@ export const mockImages: SatelliteImage[] = [
     likes: 21,
     location: "germany",
     src: "/demo/images/sat-5.jpg",
-    description: "Platzhalter-Infrarotscan mit Feuchtigkeitsbewegung.",
+    description: "Feuchte Luft gleitet über die Alpen; im Infrarot wird die Höhenstaffelung der Wolken lesbar."
   },
   {
     id: "6",
@@ -100,7 +100,7 @@ export const mockTimelapses: Timelapse[] = [
     period: "24h",
     type: "temperature",
     src: "/demo/videos/temperature-24h.mp4",
-    description: "Demo-Zeitraffer für Temperatur-Platzhalterdaten.",
+    description: "Ein Tag in Farben: wie sich Wärme über Land und Wasser verschiebt."
   },
   {
     id: "tl-4",
@@ -108,7 +108,7 @@ export const mockTimelapses: Timelapse[] = [
     period: "all",
     type: "infrared",
     src: "/demo/videos/clouds-7d.mp4",
-    description: "Platzhalter-Archiv für künftige Infrarotdatenströme.",
+    description: "Archivblick ins Infrarot — vorbereitet für längere Datenreihen aus dem Empfang."
   },
 ];
 
@@ -116,23 +116,30 @@ export const mockArticles: Article[] = [
   {
     slug: "qfh-antenna",
     title: "Wie funktioniert eine QFH-Antenne?",
-    summary: "Erfahre, warum QFH-Antennen ideal für Wettersatelliten sind.",
+    summary: "Warum eine schraubenförmige Antenne Wettersatelliten besonders ruhig empfängt.",
     topic: "Hardware",
-    body: "Eine Quadrifilar-Helix-Antenne (QFH) empfängt zirkular polarisierte Signale von Wettersatelliten. Ihre Form sorgt bei unterschiedlichen Überflugwinkeln für einen stabilen Empfang.",
+    body: "Eine Quadrifilar-Helix-Antenne (QFH) ist für zirkular polarisierte Signale gebaut — genau die Polarisation, mit der viele Wettersatelliten senden. Zwei ineinander verschlungene Helices halten den Empfang stabil, selbst wenn der Satellit tief am Horizont steht oder schnell über den Himmel zieht. Für NOSA bedeutet das: weniger Rauschen, klarere Bildzeilen, reproduzierbare Überflüge. Die Geometrie ist bewusst einfach, damit sie in der Schule nachgebaut und verstanden werden kann.",
   },
   {
     slug: "satellite-reception",
     title: "Wie werden Satelliten empfangen?",
-    summary: "Von der Antenne bis zum dekodierten Wetterbild.",
+    summary: "Der Weg vom Radiosignal über den SDR bis zum sichtbaren Wetterbild.",
     topic: "Signalverarbeitung",
-    body: "Die Empfangskette von NOSA beginnt an der Antenne, führt über einen SDR-Empfänger und wandelt Radiosignale mit Dekodierungssoftware in Bildzeilen um.",
+    body: "NOSA hört polarumlaufende Satelliten wie NOAA und MetOp. Die Antenne liefert ein schwaches Hochfrequenzsignal an einen Software-Defined Radio. Software synchronisiert die Zeilen, dekodiert das Bildformat und schreibt eine Datei. Jede Zeile entspricht einem schmalen Streifen der Erde; erst viele Zeilen ergeben die vertraute Karte. Fehler in dieser Kette — Timing, Doppler, Rauschen — sieht man später als Streifen oder Verzerrung im Bild.",
   },
   {
     slug: "software-pipeline",
     title: "Wie funktioniert die Software-Pipeline?",
-    summary: "Ein Blick auf Erfassung, Verarbeitung und Veröffentlichung.",
+    summary: "Von der Empfangsstation in die Web-App: Speichern, Ausliefern, Erklären.",
     topic: "Software",
-    body: "Künftig gelangen NOSA-Bilder von Empfangssystemen in den Cloud-Speicher und anschließend in die Web-App. Dieses Projekt verwendet zunächst Beispieldaten, hält den Datenzugriff aber für einen einfachen Austausch abstrahiert.",
+    body: "Nach der Dekodierung wandern Bilder in einen Speicher, den die Web-App über eine schmale Datenschicht liest. Heute sind das Beispieldateien, morgen können es APIs und Objekt-Speicher sein — die Seiten bleiben dieselben. Metadaten wie Satellit, Typ und Ort machen Filter und Galerie möglich. So bleibt die Plattform erweiterbar, ohne dass jede Ansicht neu geschrieben werden muss.",
+  },
+  {
+    slug: "eumetsat-daten",
+    title: "Was liefert EUMETSAT — und warum zeigen wir es?",
+    summary: "Europäische operationelle Satelliten neben dem schulischen Eigenempfang.",
+    topic: "Daten",
+    body: "EUMETSAT betreibt die Meteosat-Flotte über dem Äquator und liefert im Viertelstundentakt RGB-Komposite, Infrarot und abgeleitete Produkte. NOSA empfängt zusätzlich polarumlaufende Satelliten mit eigener Hardware. Beides gehört zusammen: Die Antenne zeigt, wie ein Signal entsteht. EUMETSAT zeigt, wie ein professioneller Dienst dieselbe Erde in standardisierten Produkten darstellt. In der EUMETSAT-Ansicht nutzt die App den öffentlichen WMS von EUMETView — ohne Login, mit klarer Quellenangabe.",
   },
 ];
 
@@ -224,40 +231,48 @@ export const countryGuessMaps: CountryGuessMap[] = [
 export const startSlides: StartSlide[] = [
   {
     id: "s-1",
-    title: "Live-Satellitenstrom",
-    subtitle: "Prototypansicht mit wechselbaren Bildtypen",
+    title: "Live aus dem Empfang",
+    subtitle: "Ort und Bildtyp wählen — so sieht der NOSA-Strom aus.",
     href: "/live",
     mediaType: "image",
     mediaSrc: "/demo/images/sat-1.jpg",
   },
   {
     id: "s-2",
+    title: "EUMETSAT öffnen",
+    subtitle: "Aktuelle Meteosat-Szenen: Farben, Staub, Luftmassen, Infrarot.",
+    href: "/eumetsat",
+    mediaType: "image",
+    mediaSrc: "/demo/images/sat-4.jpg",
+  },
+  {
+    id: "s-3",
     title: "Zeitraffer entdecken",
-    subtitle: "Beobachte wechselnde Wolkensysteme im Zeitverlauf",
+    subtitle: "Wolken und Wärme in 24 Stunden oder sieben Tagen.",
     href: "/zeitraffer",
     mediaType: "video",
     mediaSrc: "/demo/videos/clouds-24h.mp4",
   },
   {
-    id: "s-3",
-    title: "Galerie öffnen",
-    subtitle: "Entdecke Aufnahmen, Metadaten und Bilddetails",
+    id: "s-4",
+    title: "Galerie durchstöbern",
+    subtitle: "Aufnahmen mit Datum, Satellit und kurzer Erklärung.",
     href: "/galerie",
     mediaType: "image",
     mediaSrc: "/demo/images/sat-6.jpg",
   },
   {
-    id: "s-4",
-    title: "Die Wissenschaft entdecken",
-    subtitle: "Verstehe Antennen, Satelliten und Verarbeitung",
+    id: "s-5",
+    title: "Wissen nachlesen",
+    subtitle: "Antenne, Empfang, Software und europäische Satellitendaten.",
     href: "/wissen",
     mediaType: "image",
     mediaSrc: "/demo/images/sat-3.jpg",
   },
   {
-    id: "s-5",
-    title: "Partner und Team kennenlernen",
-    subtitle: "Lerne die Menschen hinter NOSA kennen",
+    id: "s-6",
+    title: "Das Team kennenlernen",
+    subtitle: "Wer NOSA baut — und warum der Blick nach oben zur Schule gehört.",
     href: "/das-sind-wir",
     mediaType: "image",
     mediaSrc: "/demo/images/sat-5.jpg",

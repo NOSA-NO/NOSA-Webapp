@@ -10,9 +10,9 @@ export function PartnerGrid({ partners }: { partners: Partner[] }) {
         <Card key={partner.id}>
           <CardContent className="space-y-3">
             <Image src={partner.logo} alt={partner.name} width={144} height={50} />
-            <h2 className="text-lg font-semibold text-slate-100">{partner.name}</h2>
-            <p className="text-slate-300">{partner.description}</p>
-            <Link href={partner.url} target="_blank" rel="noopener noreferrer" className="text-sky-300 hover:text-sky-200">
+            <h2 className="text-lg font-semibold text-foreground">{partner.name}</h2>
+            <p className="text-nosa-muted">{partner.description}</p>
+            <Link href={partner.url} target="_blank" rel="noopener noreferrer" className="text-nosa-accent hover:text-teal-200">
               Partner besuchen ↗
             </Link>
           </CardContent>

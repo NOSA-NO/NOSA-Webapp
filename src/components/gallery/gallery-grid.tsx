@@ -61,7 +61,7 @@ export function GalleryGrid({ images }: { images: SatelliteImage[] }) {
         <Select value={sortBy} onChange={(event) => setSortBy(event.target.value)}>
           <option value="date-desc">Neueste zuerst</option>
           <option value="date-asc">Älteste zuerst</option>
-          <option value="likes">Am häufigsten mit „Gefällt mir“ markiert</option>
+          <option value="likes">Beliebteste zuerst</option>
         </Select>
       </div>
 
@@ -69,11 +69,11 @@ export function GalleryGrid({ images }: { images: SatelliteImage[] }) {
         {filtered.map((image) => (
           <Card key={image.id} className="overflow-hidden">
             <Link href={`/galerie/image/${image.id}`}>
-              <div className="relative aspect-[4/3]">
+              <div className="relative aspect-[4/3] border-b border-nosa-border">
                 <Image src={image.src} alt={image.title} fill sizes="(max-width: 1200px) 50vw, 33vw" className="object-cover" />
               </div>
               <CardContent className="space-y-2">
-                <h2 className="text-lg font-semibold text-slate-100">{image.title}</h2>
+                <h2 className="text-lg font-semibold text-foreground">{image.title}</h2>
                 <div className="flex flex-wrap gap-2">
                   <Badge>{image.date}</Badge>
                   <Badge>{image.satellite}</Badge>

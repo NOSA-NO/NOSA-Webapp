@@ -1,13 +1,15 @@
 import { GalleryGrid } from "@/components/gallery/gallery-grid";
+import { PageIntro } from "@/components/layout/page-intro";
 import { getImages } from "@/lib/data";
 
 export default function GalleryPage() {
   return (
-    <section className="space-y-5">
-      <h1 className="text-3xl font-bold md:text-4xl">Galerie</h1>
-      <p className="text-sky-700">
-        Entdecke Satellitenaufnahmen mit Filtern, Sortierung und vorbereiteter Suche.
-      </p>
+    <section className="space-y-8">
+      <PageIntro
+        eyebrow="Archiv"
+        title="Galerie"
+        description="Durchsuche Satellitenbilder nach Titel, Satellit oder Typ. Sortiere nach Datum oder Beliebtheit und öffne ein Bild für Details, Metadaten und einen QR-Code zur Seite."
+      />
       <GalleryGrid images={getImages()} />
     </section>
   );
